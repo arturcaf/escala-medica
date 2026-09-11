@@ -1,0 +1,8 @@
+out/
+resources/
+src/
+*.bat
+*.sh
+*.txt
+!render.yaml
+data/trocas.json
