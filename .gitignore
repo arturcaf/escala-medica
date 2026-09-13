@@ -1,8 +1,5 @@
-out/
-resources/
-src/
-*.bat
-*.sh
-*.txt
-!render.yaml
+data/*.db
 data/trocas.json
+data/checkins.json
+data/notificacoes.json
+*.class
