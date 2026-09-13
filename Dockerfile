@@ -3,4 +3,4 @@ WORKDIR /app
 COPY escala-medica.jar .
 RUN mkdir -p /app/data
 EXPOSE 8080
-CMD ["java", "-Dserver.port=${PORT:-8080}", "-jar", "escala-medica.jar"]
+CMD ["java", "-jar", "escala-medica.jar"]
