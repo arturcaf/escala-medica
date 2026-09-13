@@ -1,0 +1,116 @@
+==============================================
+  ESCALA MEDICA - Deploy no Render.com
+  Guia completo - App online em 10 minutos
+==============================================
+
+REQUISITOS:
+  - Conta GitHub (gratis em github.com)
+  - Conta Render (gratis em render.com)
+  - Os arquivos: escala-medica.jar, Dockerfile, render.yaml
+
+==============================================
+  PARTE 1 - CRIAR REPOSITORIO NO GITHUB
+==============================================
+
+1. Acesse: https://github.com
+2. Clique no "+" no canto superior direito
+3. Selecione "New repository"
+4. Configure:
+   - Repository name: escala-medica
+   - Visibility: Private (recomendado)
+   - NAO marque "Add README"
+5. Clique "Create repository"
+6. Anote a URL do repositorio (ex: github.com/seunome/escala-medica)
+
+Agora envie os arquivos para o GitHub.
+Abra o Terminal na pasta dos arquivos e execute:
+
+  git init -b main
+  git add escala-medica.jar Dockerfile render.yaml README.md
+  git commit -m "Deploy inicial"
+  git remote add origin https://github.com/SEU-USUARIO/escala-medica.git
+  git push -u origin main
+
+  (substitua SEU-USUARIO pelo seu usuario do GitHub)
+
+==============================================
+  PARTE 2 - CRIAR APP NO RENDER
+==============================================
+
+1. Acesse: https://render.com
+2. Clique "Get Started for Free"
+3. Cadastre-se com sua conta GitHub (mais facil)
+
+4. No Dashboard, clique "New +"
+5. Selecione "Web Service"
+
+6. Conecte o repositorio:
+   - Clique "Connect account" (GitHub)
+   - Autorize o Render a acessar seus repos
+   - Selecione o repositorio "escala-medica"
+   - Clique "Connect"
+
+7. Configure o servico:
+   - Name: escala-medica
+   - Region: Oregon (US West) ou Frankfurt (Europa)
+   - Branch: main
+   - Runtime: Docker
+   - Instance Type: Free
+
+8. Em "Environment Variables", adicione:
+   - Key: PORT
+   - Value: 8080
+
+9. Clique "Create Web Service"
+
+10. Aguarde o deploy (3-5 minutos)
+    Voce vera os logs em tempo real
+
+==============================================
+  PARTE 3 - ACESSAR O APP
+==============================================
+
+Apos o deploy, o Render fornece uma URL como:
+  https://escala-medica.onrender.com
+
+Compartilhe este link com toda a equipe!
+Funciona em qualquer dispositivo, de qualquer lugar.
+
+IMPORTANTE - Plano gratuito do Render:
+  - App "dorme" apos 15 minutos sem acesso
+  - Acorda em ~30 segundos quando alguem acessa
+  - Para manter sempre ativo: upgrade para $7/mes
+  - Ou use Oracle Cloud (sempre ativo, gratis)
+
+==============================================
+  PARTE 4 - ATUALIZAR O APP
+==============================================
+
+Quando receber um novo escala-medica.jar:
+
+  cp novo-escala-medica.jar escala-medica.jar
+  git add escala-medica.jar
+  git commit -m "Atualizacao do app"
+  git push
+
+O Render detecta automaticamente e faz novo deploy!
+
+==============================================
+  DADOS PERSISTENTES
+==============================================
+
+No plano gratuito do Render, os dados (trocas)
+sao perdidos quando o app reinicia.
+
+Para manter os dados permanentes:
+  - Render Disk: $1/mes (1GB)
+  - Ou use banco de dados externo gratuito
+
+==============================================
+  SUPORTE
+==============================================
+
+Documentacao Render: https://render.com/docs
+Status Render: https://status.render.com
+
+==============================================
