@@ -1,5 +1,0 @@
-[phases.build]
-cmds = []
-
-[start]
-cmd = "java -jar escala-medica.jar"

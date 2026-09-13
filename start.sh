@@ -1,2 +1,2 @@
-#!/bin/bash
-exec java -jar escala-medica.jar
+#!/bin/sh
+exec java -jar /app/escala-medica.jar

@@ -1,7 +1,6 @@
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
-COPY escala-medica.jar app.jar
+COPY escala-medica.jar .
 RUN mkdir -p /app/data
 EXPOSE 8080
-ENV PORT=8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["java", "-Dserver.port=${PORT:-8080}", "-jar", "escala-medica.jar"]
