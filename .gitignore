@@ -1,3 +1,5 @@
+# Ignorar apenas arquivos de dados locais
 data/*.db
 *.class
 out/
+# NAO ignorar o JAR
